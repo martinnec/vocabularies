@@ -1,0 +1,1630 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+
+<https://example.com/hospitals#Hospital> a owl:Class, rdfs:Class;
+    rdfs:label "Hospital"@en;
+    rdfs:comment "An organization that offers a range of medical services, including emergency care, surgeries, inpatient and outpatient treatment, diagnostic testing, and specialized care."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:subClassOf <http://data.europa.eu/m8g/PublicOrganisation>.
+<https://example.com/hospitals#Patient> a owl:Class, rdfs:Class;
+    rdfs:label "Patient"@en;
+    rdfs:comment "An individual who is receiving or is registered to receive medical treatment or care from a hospital. This includes anyone undergoing examination, diagnosis, or treatment for any health condition."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:subClassOf <http://xmlns.com/foaf/0.1/Person>.
+<https://example.com/hospitals#receivesHealthcareFrom> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "receives health care from"@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <https://example.com/hospitals#Patient>;
+    rdfs:range <https://example.com/hospitals#Hospital>.
+<http://data.europa.eu/m8g/AccountingDocument> a owl:Class, rdfs:Class;
+    rdfs:label "Accounting Document"@en;
+    rdfs:comment "Financial and non-financial information as a result of an activity of an organisation."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:subClassOf owl:Thing.
+<http://data.europa.eu/m8g/AdminUnit> a owl:Class, rdfs:Class;
+    rdfs:label "Administrative Unit"@en;
+    rdfs:comment "A detailed administrative unit organized in a hierarchy."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:subClassOf owl:Thing.
+<http://data.europa.eu/m8g/code> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "code"@en;
+    rdfs:comment "The classification of the administrative unit."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <http://data.europa.eu/m8g/AdminUnit>;
+    rdfs:range <http://www.w3.org/2004/02/skos/core#Concept>.
+<http://data.europa.eu/m8g/level> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "level"@en;
+    rdfs:comment "The level of the administrative unit in the hierarchy."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <http://data.europa.eu/m8g/AdminUnit>;
+    rdfs:range <http://www.w3.org/2004/02/skos/core#Concept>.
+<http://data.europa.eu/m8g/BusinessEvent> a owl:Class, rdfs:Class;
+    rdfs:label "Business Event"@en;
+    rdfs:comment "A Business Event is a specific situation or event in the lifecycle of a business that fulfils one or more needs or (legal) obligations of that business at this specific point in time."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:subClassOf <http://data.europa.eu/m8g/Event>, owl:Thing.
+<http://data.europa.eu/m8g/Channel> a owl:Class, rdfs:Class;
+    rdfs:label "Channel"@en;
+    rdfs:comment "A medium through which an Agent provides, uses or interacts in another way with a Public Service."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:subClassOf owl:Thing.
+<http://data.europa.eu/m8g/Constraint> a owl:Class, rdfs:Class;
+    rdfs:label "Constraint"@en;
+    rdfs:comment "Limitation applied to an Information Concept."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:subClassOf <http://data.europa.eu/m8g/Requirement>, owl:Thing.
+<http://data.europa.eu/m8g/constrains> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "constrains"@en;
+    rdfs:comment "Information Concept about which a Constraint expresses a limitation."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <http://data.europa.eu/m8g/Constraint>;
+    rdfs:range <http://data.europa.eu/m8g/InformationConcept>.
+<http://data.europa.eu/m8g/ContactPoint> a owl:Class, rdfs:Class;
+    rdfs:label "Contact Point"@en;
+    rdfs:comment "Information (e.g. e-mail address, telephone number) of a person or department through which the user can get in touch with."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:subClassOf owl:Thing.
+<http://data.europa.eu/m8g/contactPage> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "contact page"@en;
+    rdfs:comment "A web page that could be used to reach out the Contact Point."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <http://data.europa.eu/m8g/ContactPoint>;
+    rdfs:range <http://xmlns.com/foaf/0.1/Document>.
+<http://data.europa.eu/m8g/email> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "has email"@en;
+    rdfs:comment "An electronic address through which the Contact Point can be contacted."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <http://data.europa.eu/m8g/ContactPoint>;
+    rdfs:range rdfs:Literal.
+<http://data.europa.eu/m8g/telephone> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "has telephone"@en;
+    rdfs:comment "A telephone number through which the Contact Point can be contacted."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <http://data.europa.eu/m8g/ContactPoint>;
+    rdfs:range rdfs:Literal.
+<http://data.europa.eu/m8g/Cost> a owl:Class, rdfs:Class;
+    rdfs:label "Cost"@en;
+    rdfs:comment "The Cost class represents any costs related to the execution of a Public Service that the Agent consuming it needs to pay."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:subClassOf owl:Thing.
+<http://data.europa.eu/m8g/Criterion> a owl:Class, rdfs:Class;
+    rdfs:label "Criterion"@en;
+    rdfs:comment "Condition for evaluation or assessment."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:subClassOf <http://data.europa.eu/m8g/Requirement>, owl:Thing.
+<http://data.europa.eu/m8g/bias> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "bias"@en;
+    rdfs:comment "Parameter used to adjust the evaluation of the Criterion."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <http://data.europa.eu/m8g/Criterion>;
+    rdfs:range <https://ofn.gov.cz/zdroj/základní-datové-typy/2020-07-01/desetinné-číslo>.
+<http://data.europa.eu/m8g/weight> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "weight"@en;
+    rdfs:comment "Relative importance of the Criterion."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <http://data.europa.eu/m8g/Criterion>;
+    rdfs:range <https://ofn.gov.cz/zdroj/základní-datové-typy/2020-07-01/desetinné-číslo>.
+<http://data.europa.eu/m8g/weightingConsiderationDescription> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "weighting consideration description"@en;
+    rdfs:comment "Explanation of how the weighting of a Criterion is to be used."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <http://data.europa.eu/m8g/Criterion>;
+    rdfs:range <https://ofn.gov.cz/zdroj/základní-datové-typy/2020-07-01/řetězec>.
+<http://data.europa.eu/m8g/weightingType> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "weighting type"@en;
+    rdfs:comment "Indication of how the weight should be interpreted in a complex evaluation expression, e.g. as a percentage in an evaluation expression."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <http://data.europa.eu/m8g/Criterion>;
+    rdfs:range <http://www.w3.org/2004/02/skos/core#Concept>.
+<http://data.europa.eu/m8g/Event> a owl:Class, rdfs:Class;
+    rdfs:label "Event"@en;
+    rdfs:comment "This class represents an event that can be of any type that triggers, makes use of, or in some way is related to, a Public Service."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:subClassOf owl:Thing.
+<http://data.europa.eu/m8g/Evidence> a owl:Class, rdfs:Class;
+    rdfs:label "Evidence"@en;
+    rdfs:comment "Proof that a Requirement is met."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:subClassOf owl:Thing.
+<http://data.europa.eu/m8g/confidentialityLevelType> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "confidentiality level type"@en;
+    rdfs:comment "Security classification assigned to an Evidence e.g. classified, sensitive, public."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <http://data.europa.eu/m8g/Evidence>;
+    rdfs:range <http://www.w3.org/2004/02/skos/core#Concept>.
+<http://data.europa.eu/m8g/supportsConcept> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "supports concept"@en;
+    rdfs:comment "Information Concept providing facts found/inferred from the Evidence."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <http://data.europa.eu/m8g/Evidence>;
+    rdfs:range <http://data.europa.eu/m8g/InformationConcept>.
+<http://data.europa.eu/m8g/supportsRequirement> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "supports requirement"@en;
+    rdfs:comment "Requirement for which the Evidence provides proof."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <http://data.europa.eu/m8g/Evidence>;
+    rdfs:range <http://data.europa.eu/m8g/Requirement>.
+<http://data.europa.eu/m8g/supportsValue> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "supports value"@en;
+    rdfs:comment "Supported Value that the Evidence contains."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <http://data.europa.eu/m8g/Evidence>;
+    rdfs:range <http://data.europa.eu/m8g/SupportedValue>.
+<http://data.europa.eu/m8g/validityPeriod> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "validity period"@en;
+    rdfs:comment "Period of Time during which the Evidence holds true or has force."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <http://data.europa.eu/m8g/Evidence>;
+    rdfs:range <http://www.w3.org/2006/time#ProperInterval>.
+<http://data.europa.eu/m8g/EvidenceType> a owl:Class, rdfs:Class;
+    rdfs:label "Evidence Type"@en;
+    rdfs:comment "Information about the characteristics of an Evidence."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:subClassOf owl:Thing.
+<http://data.europa.eu/m8g/evidenceTypeClassification> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "evidence type classification"@en;
+    rdfs:comment "Category to which the Evidence Type belongs."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <http://data.europa.eu/m8g/EvidenceType>;
+    rdfs:range <http://www.w3.org/2004/02/skos/core#Concept>.
+<http://data.europa.eu/m8g/isSpecifiedIn> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "is specified in"@en;
+    rdfs:comment "Evidence Type List in which the Evidence Type is included."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <http://data.europa.eu/m8g/EvidenceType>;
+    rdfs:range <http://data.europa.eu/m8g/EvidenceTypeList>.
+<http://data.europa.eu/m8g/validityPeriodConstraint> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "validity period constraint"@en;
+    rdfs:comment "Temporal condition on the validity period of the Evidence Type."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <http://data.europa.eu/m8g/EvidenceType>;
+    rdfs:range <http://www.w3.org/2006/time#ProperInterval>.
+<http://data.europa.eu/m8g/EvidenceTypeList> a owl:Class, rdfs:Class;
+    rdfs:label "Evidence Type List"@en;
+    rdfs:comment "Group of Evidence Types for conforming to a Requirement."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:subClassOf owl:Thing.
+<http://data.europa.eu/m8g/specifiesEvidenceType> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "specifies evidence type"@en;
+    rdfs:comment "Evidence Type included in this Evidence Type List."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <http://data.europa.eu/m8g/EvidenceTypeList>;
+    rdfs:range <http://data.europa.eu/m8g/EvidenceType>.
+<http://data.europa.eu/m8g/GenericDate> a owl:Class, rdfs:Class;
+    rdfs:label "Generic date"@en;
+    rdfs:comment "The date data type is the union of  xs:date, xs:gYearMonth and xs:gYear"@en;
+    rdfs:isDefinedBy <>;
+    rdfs:subClassOf owl:Thing.
+<http://data.europa.eu/m8g/ImageObject> a owl:Class, rdfs:Class;
+    rdfs:label "Image Object"@en;
+    rdfs:comment "A logo to describe / represent an entity."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:subClassOf owl:Thing.
+<http://data.europa.eu/m8g/InformationConcept> a owl:Class, rdfs:Class;
+    rdfs:label "Information Concept"@en;
+    rdfs:comment "Piece of information that the Evidence provides or the Requirement needs."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:subClassOf owl:Thing.
+<http://data.europa.eu/m8g/expressionOfExpectedValue> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "expression of expected value"@en;
+    rdfs:comment "Formulation in a formal language of the expected value(s) for the Information Concept which is aligned with the concepts from the Requirements defined and must be respected by the supplied Supported Values ."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <http://data.europa.eu/m8g/InformationConcept>;
+    rdfs:range rdfs:Literal.
+<http://data.europa.eu/m8g/InformationRequirement> a owl:Class, rdfs:Class;
+    rdfs:label "Information Requirement"@en;
+    rdfs:comment "Requested data that is to be proven by Evidence."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:subClassOf <http://data.europa.eu/m8g/Requirement>, owl:Thing.
+<http://data.europa.eu/m8g/LifeEvent> a owl:Class, rdfs:Class;
+    rdfs:label "Life Event"@en;
+    rdfs:comment "The Life Event class represents an important event or situation in a citizen's life where public services are required."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:subClassOf <http://data.europa.eu/m8g/Event>, owl:Thing.
+<http://data.europa.eu/m8g/Output> a owl:Class, rdfs:Class;
+    rdfs:label "Output"@en;
+    rdfs:comment "An output can be any resource - document, artefact - anything produced by the Public Service. In the context of a Public Service, the output provides an official document or other artefact of the Competent Authority (Public Organization) that permits/authorises/entitles an Agent to (do) something."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:subClassOf owl:Thing.
+<http://data.europa.eu/m8g/Participation> a owl:Class, rdfs:Class;
+    rdfs:label "Participation"@en;
+    rdfs:comment "The Participation class allows to define roles within a certain context."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:subClassOf owl:Thing.
+<http://data.europa.eu/m8g/role> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "role"@en;
+    rdfs:comment "The function of an Agent within a Participation."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <http://data.europa.eu/m8g/Participation>;
+    rdfs:range <http://www.w3.org/2004/02/skos/core#Concept>.
+<http://data.europa.eu/m8g/PublicEvent> a owl:Class, rdfs:Class;
+    rdfs:label "Public Event"@en;
+    rdfs:comment "Something that happens at a particular place and time,\norganised by one or more agents for a particular purpose, and is of interest to a general\n audience. This definition excludes natural events such as earthquakes and volcanic \neruptions."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:subClassOf owl:Thing.
+<http://data.europa.eu/m8g/accessibility> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "accessibility"@en;
+    rdfs:comment "Information about how the Public Event can be approached, reached or entered, in particular for people with special needs."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <http://data.europa.eu/m8g/PublicEvent>;
+    rdfs:range rdf:langString.
+<http://data.europa.eu/m8g/audience> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "audience"@en;
+    rdfs:comment "The target group of people for whom the Public Event is created."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <http://data.europa.eu/m8g/PublicEvent>;
+    rdfs:range <http://www.w3.org/2004/02/skos/core#Concept>.
+<http://data.europa.eu/m8g/eventNumber> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "event number"@en;
+    rdfs:comment "The sequence position of the Public Event."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <http://data.europa.eu/m8g/PublicEvent>;
+    rdfs:range rdf:langString.
+<http://data.europa.eu/m8g/eventStatus> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "event status"@en;
+    rdfs:comment " This property defines the overall status of the event."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <http://data.europa.eu/m8g/PublicEvent>;
+    rdfs:range <http://www.w3.org/2004/02/skos/core#Concept>.
+<http://data.europa.eu/m8g/expectedNumberOfParticipants> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "expected number of participants"@en;
+    rdfs:comment "The number of participants expected to participate in the event."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <http://data.europa.eu/m8g/PublicEvent>;
+    rdfs:range <https://ofn.gov.cz/zdroj/základní-datové-typy/2020-07-01/celé-číslo>.
+<http://data.europa.eu/m8g/format> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "format"@en;
+    rdfs:comment "A plan of organisation or arrangement of the Public Event."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <http://data.europa.eu/m8g/PublicEvent>;
+    rdfs:range <http://www.w3.org/2004/02/skos/core#Concept>.
+<http://data.europa.eu/m8g/registrationPage> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "registration page"@en;
+    rdfs:comment "A web page that provides means to attend the Public Event."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <http://data.europa.eu/m8g/PublicEvent>;
+    rdfs:range <http://xmlns.com/foaf/0.1/Document>.
+<http://data.europa.eu/m8g/PublicOrganisation> a owl:Class, rdfs:Class;
+    rdfs:label "Public Organization"@en;
+    rdfs:comment "An Organization that is defined as being part of the public sector by a legal framework at any level."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:subClassOf owl:Thing, <http://www.w3.org/ns/org#Organization>.
+<http://data.europa.eu/m8g/ReferenceFramework> a owl:Class, rdfs:Class;
+    rdfs:label "Reference Framework"@en;
+    rdfs:comment "Legislation or official policy from which Requirements are derived."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:subClassOf owl:Thing.
+<http://data.europa.eu/m8g/Requirement> a owl:Class, rdfs:Class;
+    rdfs:label "Requirement"@en;
+    rdfs:comment "Condition or prerequisite that is to be proven by Evidence."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:subClassOf owl:Thing.
+<http://data.europa.eu/m8g/hasConcept> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "has concept"@en;
+    rdfs:comment "Information Concept for which a value is expected by the Requirement."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <http://data.europa.eu/m8g/Requirement>;
+    rdfs:range <http://data.europa.eu/m8g/InformationConcept>.
+<http://data.europa.eu/m8g/hasEvidenceTypeList> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "has evidence type list"@en;
+    rdfs:comment "Evidence Type List that specifies the Evidence Types that are needed to meet the Requirement."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <http://data.europa.eu/m8g/Requirement>;
+    rdfs:range <http://data.europa.eu/m8g/EvidenceTypeList>.
+<http://data.europa.eu/m8g/hasQualifiedRelation> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "has qualified relation"@en;
+    rdfs:comment "Described and/or categorised relation to another Requirement."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <http://data.europa.eu/m8g/Requirement>;
+    rdfs:range <http://data.europa.eu/m8g/Requirement>.
+<http://data.europa.eu/m8g/hasRequirement> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "has requirement"@en;
+    rdfs:comment "A more specific Requirement that is part of the Requirement."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <http://data.europa.eu/m8g/Requirement>;
+    rdfs:range <http://data.europa.eu/m8g/Requirement>.
+<http://data.europa.eu/m8g/hasSupportingEvidence> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "has supporting evidence"@en;
+    rdfs:comment "Evidence that supplies information, proof or support for the Requirement."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <http://data.europa.eu/m8g/Requirement>;
+    rdfs:range <http://data.europa.eu/m8g/Evidence>.
+<http://data.europa.eu/m8g/isDerivedFrom> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "is derived from"@en;
+    rdfs:comment "Reference Framework on which the Requirement is based, such as a law or regulation."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <http://data.europa.eu/m8g/Requirement>;
+    rdfs:range <http://data.europa.eu/m8g/ReferenceFramework>.
+<http://data.europa.eu/m8g/isRequirementOf> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "is requirement of"@en;
+    rdfs:comment "A reference between a sub-Requirement and its parent Requirement."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <http://data.europa.eu/m8g/Requirement>;
+    rdfs:range <http://data.europa.eu/m8g/Requirement>.
+<http://data.europa.eu/m8g/ServiceConcessionContract> a owl:Class, rdfs:Class;
+    rdfs:label "Service Concession Contract"@en;
+    rdfs:comment "Concessions are contracts for pecuniary interest by means of which one or more contracting authorities or contracting entities entrusts the execution of works, or the provision and the management of services, to one or more economic operators."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:subClassOf <http://data.europa.eu/a4g/ontology#ConcessionContract>, owl:Thing.
+<http://data.europa.eu/m8g/SupportedValue> a owl:Class, rdfs:Class;
+    rdfs:label "Supported Value"@en;
+    rdfs:comment "Value for an Information Concept that is provided by an Evidence."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:subClassOf owl:Thing.
+<http://data.europa.eu/m8g/providesValueFor> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "provides value for"@en;
+    rdfs:comment "Information Concept for which the Supported Value provides a value."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <http://data.europa.eu/m8g/SupportedValue>;
+    rdfs:range <http://data.europa.eu/m8g/InformationConcept>.
+<http://data.europa.eu/m8g/query> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "query"@en;
+    rdfs:comment "Search statement that allows the value for the Information Concept to be retrieved from the Evidence data."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <http://data.europa.eu/m8g/SupportedValue>;
+    rdfs:range rdfs:Literal.
+<http://data.europa.eu/m8g/value> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "value"@en;
+    rdfs:comment "Value for the Information Concept that the Evidence supports."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <http://data.europa.eu/m8g/SupportedValue>;
+    rdfs:range rdfs:Literal.
+<http://purl.org/dc/terms/Agent> a owl:Class, rdfs:Class;
+    rdfs:label "Agent"@en;
+    rdfs:comment "A resource that acts or has the power to act."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:subClassOf owl:Thing.
+<http://www.w3.org/ns/regorg#hasRegisteredOrganization> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "registered organization"@en;
+    rdfs:comment "The has registered organization relationship can be used to link any dcterms:Agent (equivalent class foaf:Agent) to a Registered Organization that in some way acts as a registered legal entity for it. This is useful, for example, where an organization includes one or more legal entities, or where a natural person is also registered as a legal entity. rov:hasRegisteredOrganization has a range of rov:RegisteredOrganization."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <http://purl.org/dc/terms/Agent>;
+    rdfs:range <http://www.w3.org/ns/regorg#RegisteredOrganization>.
+<http://purl.org/dc/terms/AgentClass> a owl:Class, rdfs:Class;
+    rdfs:label "Agent Class"@en;
+    rdfs:comment "A group of agents."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:subClassOf rdfs:Class, owl:Thing.
+<http://purl.org/dc/terms/BibliographicResource> a owl:Class, rdfs:Class;
+    rdfs:label "Bibliographic Resource"@en;
+    rdfs:comment "A book, article, or other documentary resource."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:subClassOf owl:Thing.
+<http://purl.org/dc/terms/FileFormat> a owl:Class, rdfs:Class;
+    rdfs:label "File Format"@en;
+    rdfs:comment "A digital resource format."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:subClassOf <http://purl.org/dc/terms/MediaType>, owl:Thing.
+<http://purl.org/dc/terms/Frequency> a owl:Class, rdfs:Class;
+    rdfs:label "Frequency"@en;
+    rdfs:comment "A rate at which something recurs."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:subClassOf owl:Thing.
+<http://purl.org/dc/terms/Jurisdiction> a owl:Class, rdfs:Class;
+    rdfs:label "Jurisdiction"@en;
+    rdfs:comment "The extent or range of judicial, law enforcement, or other authority."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:subClassOf <http://purl.org/dc/terms/LocationPeriodOrJurisdiction>, owl:Thing.
+<http://purl.org/dc/terms/LicenseDocument> a owl:Class, rdfs:Class;
+    rdfs:label "License Document"@en;
+    rdfs:comment "A legal document giving official permission to do something with a resource."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:subClassOf <http://purl.org/dc/terms/RightsStatement>, owl:Thing.
+<http://purl.org/dc/terms/LinguisticSystem> a owl:Class, rdfs:Class;
+    rdfs:label "Linguistic System"@en;
+    rdfs:comment "A system of signs, symbols, sounds, gestures, or rules used in communication."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:subClassOf owl:Thing.
+<http://purl.org/dc/terms/Location> a owl:Class, rdfs:Class;
+    rdfs:label "Location"@en;
+    rdfs:comment "A spatial region or named place."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:subClassOf <http://purl.org/dc/terms/LocationPeriodOrJurisdiction>, owl:Thing.
+<http://purl.org/dc/terms/LocationPeriodOrJurisdiction> a owl:Class, rdfs:Class;
+    rdfs:label "Location, Period, or Jurisdiction"@en;
+    rdfs:comment "A location, period of time, or jurisdiction."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:subClassOf owl:Thing.
+<http://purl.org/dc/terms/MediaType> a owl:Class, rdfs:Class;
+    rdfs:label "Media Type"@en;
+    rdfs:comment "A file format or physical medium."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:subClassOf <http://purl.org/dc/terms/MediaTypeOrExtent>, owl:Thing.
+<http://purl.org/dc/terms/MediaTypeOrExtent> a owl:Class, rdfs:Class;
+    rdfs:label "Media Type or Extent"@en;
+    rdfs:comment "A media type or extent."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:subClassOf owl:Thing.
+<http://purl.org/dc/terms/MethodOfAccrual> a owl:Class, rdfs:Class;
+    rdfs:label "Method of Accrual"@en;
+    rdfs:comment "A method by which resources are added to a collection."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:subClassOf owl:Thing.
+<http://purl.org/dc/terms/MethodOfInstruction> a owl:Class, rdfs:Class;
+    rdfs:label "Method of Instruction"@en;
+    rdfs:comment "A process that is used to engender knowledge, attitudes, and skills."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:subClassOf owl:Thing.
+<http://purl.org/dc/terms/PeriodOfTime> a owl:Class, rdfs:Class;
+    rdfs:label "Period of Time"@en;
+    rdfs:comment "An interval of time that is named or defined by its start and end dates."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:subClassOf <http://purl.org/dc/terms/LocationPeriodOrJurisdiction>, owl:Thing.
+<http://purl.org/dc/terms/PhysicalMedium> a owl:Class, rdfs:Class;
+    rdfs:label "Physical Medium"@en;
+    rdfs:comment "A physical material or carrier."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:subClassOf <http://purl.org/dc/terms/MediaType>, owl:Thing.
+<http://purl.org/dc/terms/PhysicalResource> a owl:Class, rdfs:Class;
+    rdfs:label "Physical Resource"@en;
+    rdfs:comment "A material thing."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:subClassOf owl:Thing.
+<http://purl.org/dc/terms/Policy> a owl:Class, rdfs:Class;
+    rdfs:label "Policy"@en;
+    rdfs:comment "A plan or course of action by an authority, intended to influence and determine decisions, actions, and other matters."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:subClassOf owl:Thing.
+<http://purl.org/dc/terms/ProvenanceStatement> a owl:Class, rdfs:Class;
+    rdfs:label "Provenance Statement"@en;
+    rdfs:comment "Any changes in ownership and custody of a resource since its creation that are significant for its authenticity, integrity, and interpretation."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:subClassOf owl:Thing.
+<http://purl.org/dc/terms/RightsStatement> a owl:Class, rdfs:Class;
+    rdfs:label "Rights Statement"@en;
+    rdfs:comment "A statement about the intellectual property rights (IPR) held in or over a resource, a legal document giving official permission to do something with a resource, or a statement about access rights."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:subClassOf owl:Thing.
+<http://purl.org/dc/terms/SizeOrDuration> a owl:Class, rdfs:Class;
+    rdfs:label "Size or Duration"@en;
+    rdfs:comment "A dimension or extent, or a time taken to play or execute."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:subClassOf <http://purl.org/dc/terms/MediaTypeOrExtent>, owl:Thing.
+<http://purl.org/dc/terms/Standard> a owl:Class, rdfs:Class;
+    rdfs:label "Standard"@en;
+    rdfs:comment "A reference point against which other things can be evaluated or compared."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:subClassOf owl:Thing.
+<http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> a owl:Class, rdfs:Class;
+    rdfs:label "Spatial Thing"@en;
+    rdfs:isDefinedBy <>;
+    rdfs:subClassOf owl:Thing.
+<http://xmlns.com/foaf/0.1/based_near> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "based near"@en;
+    rdfs:comment "A location that something is based near, for some broadly human notion of near."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing>;
+    rdfs:range <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing>.
+<http://www.w3.org/2004/02/skos/core#Concept> a owl:Class, rdfs:Class;
+    rdfs:label "Concept"@en;
+    rdfs:isDefinedBy <>;
+    rdfs:subClassOf owl:Thing.
+<http://xmlns.com/foaf/0.1/focus> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "focus"@en;
+    rdfs:comment "The underlying or 'focal' entity associated with some SKOS-described concept."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <http://www.w3.org/2004/02/skos/core#Concept>.
+<http://www.w3.org/ns/regorg#RegisteredOrganization> a owl:Class, rdfs:Class;
+    rdfs:label "Registered Organization"@en;
+    rdfs:comment "rov:RegisteredOrganization is the key class for the Registered Organization vocabulary and represents \n    an organization that is legally registered. In many countries there is a single registry although in others, such \n    as Spain and Germany, multiple registries exist. A Registered Organization is able to trade, is legally liable for \n    its actions, accounts, tax affairs etc. Legal entity status is conferred by the act of registration cf. \n    org:FormalOrganization that applies to any legal entity, including those created by other legal means.\n    This makes registered organizations distinct from the broader concept of organizations, groups or, in \n    some jurisdictions, sole traders. Many organizations exist that are not legal entities yet to the outside world \n    they have staff, hierarchies, locations etc. Other organizations exist that are an umbrella for several legal entities \n    (universities are often good examples of this). This vocabulary is concerned solely with registered organizations.\n    In RDF, Registered Organization is a sub class of the Organization Ontology's org:FormalOrganization which is itself a \n    sub class of the more general 'Agent' class found in FOAF and Dublin Core that does encompass organizations, \n    natural persons, groups etc. - i.e. an Agent is any entity that is able to carry out actions.</p>"@en;
+    rdfs:isDefinedBy <>;
+    rdfs:subClassOf owl:Thing, <http://www.w3.org/ns/org#FormalOrganization>.
+<http://www.w3.org/ns/regorg#registration> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "registration"@en;
+    rdfs:comment "The registration is a fundamental relationship between a legal entity and the authority with which it is registered and that confers legal status upon it. rov:registration is a sub property of adms:identifier which has a range of adms:Identifier. rov:registration has a domain of rov:RegisteredOrganization."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <http://www.w3.org/ns/regorg#RegisteredOrganization>;
+    a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "registration"@en;
+    rdfs:comment "The registration is a fundamental relationship between a legal entity and the authority with which it is registered and that confers legal status upon it. rov:registration is a sub property of adms:identifier which has a range of adms:Identifier. rov:registration has a domain of rov:RegisteredOrganization."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <http://www.w3.org/ns/regorg#RegisteredOrganization>.
+<http://xmlns.com/foaf/0.1/Agent> a owl:Class, rdfs:Class;
+    rdfs:label "Agent"@en;
+    rdfs:comment "An agent (eg. person, group, software or physical artifact)."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:subClassOf owl:Thing.
+<http://xmlns.com/foaf/0.1/account> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "account"@en;
+    rdfs:comment "Indicates an account held by this agent."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <http://xmlns.com/foaf/0.1/Agent>;
+    rdfs:range <http://xmlns.com/foaf/0.1/OnlineAccount>.
+<http://xmlns.com/foaf/0.1/age> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "age"@en;
+    rdfs:comment "The age in years of some agent."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <http://xmlns.com/foaf/0.1/Agent>;
+    rdfs:range rdfs:Literal.
+<http://xmlns.com/foaf/0.1/aimChatID> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "AIM chat ID"@en;
+    rdfs:comment "An AIM chat ID"@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <http://xmlns.com/foaf/0.1/Agent>;
+    rdfs:range rdfs:Literal.
+<http://xmlns.com/foaf/0.1/birthday> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "birthday"@en;
+    rdfs:comment "The birthday of this Agent, represented in mm-dd string form, eg. '12-31'."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <http://xmlns.com/foaf/0.1/Agent>;
+    rdfs:range rdfs:Literal.
+<http://xmlns.com/foaf/0.1/gender> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "gender"@en;
+    rdfs:comment "The gender of this Agent (typically but not necessarily 'male' or 'female')."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <http://xmlns.com/foaf/0.1/Agent>;
+    rdfs:range rdfs:Literal.
+<http://xmlns.com/foaf/0.1/holdsAccount> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "account"@en;
+    rdfs:comment "Indicates an account held by this agent."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <http://xmlns.com/foaf/0.1/Agent>;
+    rdfs:range <http://xmlns.com/foaf/0.1/OnlineAccount>.
+<http://xmlns.com/foaf/0.1/icqChatID> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "ICQ chat ID"@en;
+    rdfs:comment "An ICQ chat ID"@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <http://xmlns.com/foaf/0.1/Agent>;
+    rdfs:range rdfs:Literal.
+<http://xmlns.com/foaf/0.1/interest> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "interest"@en;
+    rdfs:comment "A page about a topic of interest to this person."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <http://xmlns.com/foaf/0.1/Agent>;
+    rdfs:range <http://xmlns.com/foaf/0.1/Document>.
+<http://xmlns.com/foaf/0.1/jabberID> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "jabber ID"@en;
+    rdfs:comment "A jabber ID for something."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <http://xmlns.com/foaf/0.1/Agent>;
+    rdfs:range rdfs:Literal.
+<http://xmlns.com/foaf/0.1/made> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "made"@en;
+    rdfs:comment "Something that was made by this agent."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <http://xmlns.com/foaf/0.1/Agent>.
+<http://xmlns.com/foaf/0.1/mbox> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "personal mailbox"@en;
+    rdfs:comment "A  personal mailbox, ie. an Internet mailbox associated with exactly one owner, the first owner of this mailbox. This is a 'static inverse functional property', in that  there is (across time and change) at most one individual that ever has any particular value for foaf:mbox."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <http://xmlns.com/foaf/0.1/Agent>.
+<http://xmlns.com/foaf/0.1/mbox_sha1sum> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "sha1sum of a personal mailbox URI name"@en;
+    rdfs:comment "The sha1sum of the URI of an Internet mailbox associated with exactly one owner, the  first owner of the mailbox."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <http://xmlns.com/foaf/0.1/Agent>;
+    rdfs:range rdfs:Literal.
+<http://xmlns.com/foaf/0.1/msnChatID> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "MSN chat ID"@en;
+    rdfs:comment "An MSN chat ID"@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <http://xmlns.com/foaf/0.1/Agent>;
+    rdfs:range rdfs:Literal.
+<http://xmlns.com/foaf/0.1/openid> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "openid"@en;
+    rdfs:comment "An OpenID for an Agent."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <http://xmlns.com/foaf/0.1/Agent>;
+    rdfs:range <http://xmlns.com/foaf/0.1/Document>.
+<http://xmlns.com/foaf/0.1/skypeID> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "Skype ID"@en;
+    rdfs:comment "A Skype ID"@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <http://xmlns.com/foaf/0.1/Agent>;
+    rdfs:range rdfs:Literal.
+<http://xmlns.com/foaf/0.1/status> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "status"@en;
+    rdfs:comment "A string expressing what the user is happy for the general public (normally) to know about their current activity."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <http://xmlns.com/foaf/0.1/Agent>;
+    rdfs:range rdfs:Literal.
+<http://xmlns.com/foaf/0.1/tipjar> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "tipjar"@en;
+    rdfs:comment "A tipjar document for this agent, describing means for payment and reward."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <http://xmlns.com/foaf/0.1/Agent>;
+    rdfs:range <http://xmlns.com/foaf/0.1/Document>.
+<http://xmlns.com/foaf/0.1/topic_interest> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "topic_interest"@en;
+    rdfs:comment "A thing of interest to this person."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <http://xmlns.com/foaf/0.1/Agent>.
+<http://xmlns.com/foaf/0.1/weblog> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "weblog"@en;
+    rdfs:comment "A weblog of some thing (whether person, group, company etc.)."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <http://xmlns.com/foaf/0.1/Agent>;
+    rdfs:range <http://xmlns.com/foaf/0.1/Document>.
+<http://xmlns.com/foaf/0.1/yahooChatID> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "Yahoo chat ID"@en;
+    rdfs:comment "A Yahoo chat ID"@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <http://xmlns.com/foaf/0.1/Agent>;
+    rdfs:range rdfs:Literal.
+<http://xmlns.com/foaf/0.1/Document> a owl:Class, rdfs:Class;
+    rdfs:label "Document"@en;
+    rdfs:comment "A document."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:subClassOf owl:Thing.
+<http://xmlns.com/foaf/0.1/primaryTopic> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "primary topic"@en;
+    rdfs:comment "The primary topic of some page or document."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <http://xmlns.com/foaf/0.1/Document>.
+<http://xmlns.com/foaf/0.1/sha1> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "sha1sum (hex)"@en;
+    rdfs:comment "A sha1sum hash, in hex."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <http://xmlns.com/foaf/0.1/Document>;
+    a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "sha1sum (hex)"@en;
+    rdfs:comment "A sha1sum hash, in hex."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <http://xmlns.com/foaf/0.1/Document>.
+<http://xmlns.com/foaf/0.1/topic> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "topic"@en;
+    rdfs:comment "A topic of some page or document."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <http://xmlns.com/foaf/0.1/Document>.
+<http://xmlns.com/foaf/0.1/Group> a owl:Class, rdfs:Class;
+    rdfs:label "Group"@en;
+    rdfs:comment "A class of Agents."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:subClassOf owl:Thing, <http://xmlns.com/foaf/0.1/Agent>.
+<http://xmlns.com/foaf/0.1/member> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "member"@en;
+    rdfs:comment "Indicates a member of a Group"@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <http://xmlns.com/foaf/0.1/Group>;
+    rdfs:range <http://xmlns.com/foaf/0.1/Agent>.
+<http://xmlns.com/foaf/0.1/Image> a owl:Class, rdfs:Class;
+    rdfs:label "Image"@en;
+    rdfs:comment "An image."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:subClassOf owl:Thing, <http://xmlns.com/foaf/0.1/Document>.
+<http://xmlns.com/foaf/0.1/depicts> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "depicts"@en;
+    rdfs:comment "A thing depicted in this representation."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <http://xmlns.com/foaf/0.1/Image>.
+<http://xmlns.com/foaf/0.1/thumbnail> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "thumbnail"@en;
+    rdfs:comment "A derived thumbnail image."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <http://xmlns.com/foaf/0.1/Image>;
+    rdfs:range <http://xmlns.com/foaf/0.1/Image>.
+<http://xmlns.com/foaf/0.1/LabelProperty> a owl:Class, rdfs:Class;
+    rdfs:label "Label Property"@en;
+    rdfs:comment "A foaf:LabelProperty is any RDF property with texual values that serve as labels."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:subClassOf owl:Thing.
+<http://xmlns.com/foaf/0.1/OnlineAccount> a owl:Class, rdfs:Class;
+    rdfs:label "Online Account"@en;
+    rdfs:comment "An online account."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:subClassOf owl:Thing.
+<http://xmlns.com/foaf/0.1/accountName> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "account name"@en;
+    rdfs:comment "Indicates the name (identifier) associated with this online account."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <http://xmlns.com/foaf/0.1/OnlineAccount>;
+    rdfs:range rdfs:Literal.
+<http://xmlns.com/foaf/0.1/accountServiceHomepage> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "account service homepage"@en;
+    rdfs:comment "Indicates a homepage of the service provide for this online account."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <http://xmlns.com/foaf/0.1/OnlineAccount>;
+    rdfs:range <http://xmlns.com/foaf/0.1/Document>.
+<http://xmlns.com/foaf/0.1/OnlineChatAccount> a owl:Class, rdfs:Class;
+    rdfs:label "Online Chat Account"@en;
+    rdfs:comment "An online chat account."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:subClassOf owl:Thing, <http://xmlns.com/foaf/0.1/OnlineAccount>.
+<http://xmlns.com/foaf/0.1/OnlineEcommerceAccount> a owl:Class, rdfs:Class;
+    rdfs:label "Online E-commerce Account"@en;
+    rdfs:comment "An online e-commerce account."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:subClassOf owl:Thing, <http://xmlns.com/foaf/0.1/OnlineAccount>.
+<http://xmlns.com/foaf/0.1/OnlineGamingAccount> a owl:Class, rdfs:Class;
+    rdfs:label "Online Gaming Account"@en;
+    rdfs:comment "An online gaming account."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:subClassOf owl:Thing, <http://xmlns.com/foaf/0.1/OnlineAccount>.
+<http://xmlns.com/foaf/0.1/Organization> a owl:Class, rdfs:Class;
+    rdfs:label "Organization"@en;
+    rdfs:comment "An organization."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:subClassOf owl:Thing, <http://xmlns.com/foaf/0.1/Agent>.
+<http://xmlns.com/foaf/0.1/Person> a owl:Class, rdfs:Class;
+    rdfs:label "Person"@en;
+    rdfs:comment "A person."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:subClassOf owl:Thing, <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing>, <http://xmlns.com/foaf/0.1/Agent>.
+<http://xmlns.com/foaf/0.1/currentProject> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "current project"@en;
+    rdfs:comment "A current project this person works on."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <http://xmlns.com/foaf/0.1/Person>.
+<http://xmlns.com/foaf/0.1/familyName> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "familyName"@en;
+    rdfs:comment "The family name of some person."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <http://xmlns.com/foaf/0.1/Person>;
+    rdfs:range rdfs:Literal.
+<http://xmlns.com/foaf/0.1/family_name> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "family_name"@en;
+    rdfs:comment "The family name of some person."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <http://xmlns.com/foaf/0.1/Person>;
+    rdfs:range rdfs:Literal.
+<http://xmlns.com/foaf/0.1/firstName> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "firstName"@en;
+    rdfs:comment "The first name of a person."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <http://xmlns.com/foaf/0.1/Person>;
+    rdfs:range rdfs:Literal.
+<http://xmlns.com/foaf/0.1/geekcode> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "geekcode"@en;
+    rdfs:comment "A textual geekcode for this person, see http://www.geekcode.com/geek.html"@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <http://xmlns.com/foaf/0.1/Person>;
+    rdfs:range rdfs:Literal.
+<http://xmlns.com/foaf/0.1/img> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "image"@en;
+    rdfs:comment "An image that can be used to represent some thing (ie. those depictions which are particularly representative of something, eg. one's photo on a homepage)."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <http://xmlns.com/foaf/0.1/Person>;
+    rdfs:range <http://xmlns.com/foaf/0.1/Image>.
+<http://xmlns.com/foaf/0.1/knows> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "knows"@en;
+    rdfs:comment "A person known by this person (indicating some level of reciprocated interaction between the parties)."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <http://xmlns.com/foaf/0.1/Person>;
+    rdfs:range <http://xmlns.com/foaf/0.1/Person>.
+<http://xmlns.com/foaf/0.1/lastName> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "lastName"@en;
+    rdfs:comment "The last name of a person."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <http://xmlns.com/foaf/0.1/Person>;
+    rdfs:range rdfs:Literal.
+<http://xmlns.com/foaf/0.1/myersBriggs> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "myersBriggs"@en;
+    rdfs:comment "A Myers Briggs (MBTI) personality classification."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <http://xmlns.com/foaf/0.1/Person>;
+    rdfs:range rdfs:Literal.
+<http://xmlns.com/foaf/0.1/pastProject> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "past project"@en;
+    rdfs:comment "A project this person has previously worked on."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <http://xmlns.com/foaf/0.1/Person>.
+<http://xmlns.com/foaf/0.1/plan> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "plan"@en;
+    rdfs:comment "A .plan comment, in the tradition of finger and '.plan' files."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <http://xmlns.com/foaf/0.1/Person>;
+    rdfs:range rdfs:Literal.
+<http://xmlns.com/foaf/0.1/publications> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "publications"@en;
+    rdfs:comment "A link to the publications of this person."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <http://xmlns.com/foaf/0.1/Person>;
+    rdfs:range <http://xmlns.com/foaf/0.1/Document>.
+<http://xmlns.com/foaf/0.1/schoolHomepage> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "schoolHomepage"@en;
+    rdfs:comment "A homepage of a school attended by the person."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <http://xmlns.com/foaf/0.1/Person>;
+    rdfs:range <http://xmlns.com/foaf/0.1/Document>.
+<http://xmlns.com/foaf/0.1/surname> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "Surname"@en;
+    rdfs:comment "The surname of some person."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <http://xmlns.com/foaf/0.1/Person>;
+    rdfs:range rdfs:Literal.
+<http://xmlns.com/foaf/0.1/workInfoHomepage> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "work info homepage"@en;
+    rdfs:comment "A work info homepage of some person; a page about their work for some organization."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <http://xmlns.com/foaf/0.1/Person>;
+    rdfs:range <http://xmlns.com/foaf/0.1/Document>.
+<http://xmlns.com/foaf/0.1/workplaceHomepage> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "workplace homepage"@en;
+    rdfs:comment "A workplace homepage of some person; the homepage of an organization they work for."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <http://xmlns.com/foaf/0.1/Person>;
+    rdfs:range <http://xmlns.com/foaf/0.1/Document>.
+<http://xmlns.com/foaf/0.1/PersonalProfileDocument> a owl:Class, rdfs:Class;
+    rdfs:label "PersonalProfileDocument"@en;
+    rdfs:comment "A personal profile RDF document."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:subClassOf owl:Thing, <http://xmlns.com/foaf/0.1/Document>.
+<http://xmlns.com/foaf/0.1/Project> a owl:Class, rdfs:Class;
+    rdfs:label "Project"@en;
+    rdfs:comment "A project (a collective endeavour of some kind)."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:subClassOf owl:Thing.
+<https://saref.etsi.org/saref4ehaw/Activity> a owl:Class, rdfs:Class;
+    rdfs:label "Activity"@en;
+    rdfs:comment "The activity of a patient/user, i.e. daily and nocturnal activities."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:subClassOf owl:Thing.
+<https://saref.etsi.org/saref4ehaw/activityDuration> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "activity duration"@en;
+    rdfs:comment "The duration of an activity, in second."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <https://saref.etsi.org/saref4ehaw/Activity>;
+    rdfs:range <http://www.w3.org/2001/XMLSchema#float>.
+<https://saref.etsi.org/saref4ehaw/activityKind> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "activity kind"@en;
+    rdfs:comment "The kind of atcivities that a patient or a user can have, i.e. e.g. sleeping in bed, sitting on a chair, using the shower, etc."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <https://saref.etsi.org/saref4ehaw/Activity>;
+    rdfs:range <https://ofn.gov.cz/zdroj/základní-datové-typy/2020-07-01/řetězec>.
+<https://saref.etsi.org/saref4ehaw/AgeCategory> a owl:Class, rdfs:Class;
+    rdfs:label "Age category"@en;
+    rdfs:comment "The age group of a health actor, e.g. old or young."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:subClassOf owl:Thing.
+<https://saref.etsi.org/saref4ehaw/AlarmCommand> a owl:Class, rdfs:Class;
+    rdfs:label "Alarm command"@en;
+    rdfs:comment "A command corresponding to alarm sending."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:subClassOf owl:Thing, <https://saref.etsi.org/core/Command>.
+<https://saref.etsi.org/saref4ehaw/Ban> a owl:Class, rdfs:Class;
+    rdfs:label "BAN"@en;
+    rdfs:comment "Body Area Network."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:subClassOf owl:Thing.
+<https://saref.etsi.org/saref4ehaw/banDensity> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "BAN density"@en;
+    rdfs:comment "The BAN density, i.e. its number of node."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <https://saref.etsi.org/saref4ehaw/Ban>;
+    rdfs:range <http://www.w3.org/2001/XMLSchema#long>.
+<https://saref.etsi.org/saref4ehaw/banGeolocation> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "BAN geolocation"@en;
+    rdfs:comment "The geolocation of the BAN, when available and needed, shall be given relatively to the current location - geolocation as standardized ISO 6709, e.g. +40.75-074.00/  - of the patient wearing the BAN."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <https://saref.etsi.org/saref4ehaw/Ban>;
+    rdfs:range <https://ofn.gov.cz/zdroj/základní-datové-typy/2020-07-01/řetězec>.
+<https://saref.etsi.org/saref4ehaw/banTopology> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "BAN topology"@en;
+    rdfs:comment "The BAN physical topology type, i.e Adhoc or Star or Mesh or Others."@ne;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <https://saref.etsi.org/saref4ehaw/Ban>;
+    rdfs:range <n3-4>;
+    a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "BAN topology"@en;
+    rdfs:comment "The BAN physical topology type, i.e Adhoc or Star or Mesh or Others."@ne;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <https://saref.etsi.org/saref4ehaw/Ban>;
+    rdfs:range <n3-4>.
+<https://saref.etsi.org/saref4ehaw/contains> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "contains"@en;
+    rdfs:comment "A Body Area Network or BAN contains one or multiple health devices"@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <https://saref.etsi.org/saref4ehaw/Ban>;
+    rdfs:range <https://saref.etsi.org/saref4ehaw/HealthDevice>.
+<https://saref.etsi.org/saref4ehaw/hasBanApplicationDomain> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "has BAN application domain"@en;
+    rdfs:comment "The BAN application domain - healthcare, telemedicine, assisted living, sport training, pervasive computing, safety and emergency... -."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <https://saref.etsi.org/saref4ehaw/Ban>;
+    rdfs:range <https://saref.etsi.org/saref4ehaw/BanApplicationDomain>.
+<https://saref.etsi.org/saref4ehaw/hasBanCommunicationType> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "has BAN communication type"@en;
+    rdfs:comment "A BAN has a BAN communication type that is the type of communication carried out between BAN devices and BAN Hub."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <https://saref.etsi.org/saref4ehaw/Ban>;
+    rdfs:range <https://saref.etsi.org/saref4ehaw/BanCommunicationType>.
+<https://saref.etsi.org/saref4ehaw/hasContact> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "has contact"@en;
+    rdfs:comment "A BAN has one or multiple contacts (e.g. the patient or user that is monitored through this BAN, the caregiver that is using this BAN for monitoring purposes)."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <https://saref.etsi.org/saref4ehaw/Ban>;
+    rdfs:range <https://saref.etsi.org/saref4ehaw/Contact>.
+<https://saref.etsi.org/saref4ehaw/hasHub> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "has hub"@en;
+    rdfs:comment "A Body Area Network or BAN elects one hub that mainly plays the role of both a data concentrator and a network gateway."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <https://saref.etsi.org/saref4ehaw/Ban>;
+    rdfs:range <https://saref.etsi.org/saref4ehaw/BanHub>.
+<https://saref.etsi.org/saref4ehaw/hasResponsibleParty> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "has responsible party"@en;
+    rdfs:comment "A BAN that has a responsible party which plays the role of the legal entity responsible for this BAN (e.g. to contact in case of problem). It should be an organization or a person."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <https://saref.etsi.org/saref4ehaw/Ban>;
+    rdfs:range <https://saref.etsi.org/saref4ehaw/ResponsibleParty>.
+<https://saref.etsi.org/saref4ehaw/lifetime> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "lifetime"@en;
+    rdfs:comment "The BAN lifetime (in month), e.g. BAN for entertainment purposes should have a lifetime of weeks or few years whereas BAN dedicated for assisted living or anomaly monitoring should last for many years."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <https://saref.etsi.org/saref4ehaw/Ban>;
+    rdfs:range <http://www.w3.org/2001/XMLSchema#float>.
+<https://saref.etsi.org/saref4ehaw/phenomena> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "phenomena"@en;
+    rdfs:comment "The BAN monitors a specific phenomenon (burned calories during exercises, glucose level...)."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <https://saref.etsi.org/saref4ehaw/Ban>;
+    rdfs:range <https://ofn.gov.cz/zdroj/základní-datové-typy/2020-07-01/řetězec>.
+<https://saref.etsi.org/saref4ehaw/BanApplicationDomain> a owl:Class, rdfs:Class;
+    rdfs:label "BAN application domain"@en;
+    rdfs:comment "The BAN application domain, e.g. healthcare, telemedicine, assisted living, sport training, safety and emergency..."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:subClassOf owl:Thing.
+<https://saref.etsi.org/saref4ehaw/BanCommunicationType> a owl:Class, rdfs:Class;
+    rdfs:label "BAN Communication type"@en;
+    rdfs:comment "The BAN communication function type, i.e. periodic, event driven or on request."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:subClassOf owl:Thing.
+<https://saref.etsi.org/saref4ehaw/BanHub> a owl:Class, rdfs:Class;
+    rdfs:label "BAN hub"@en;
+    rdfs:comment "Hub of the BAN, mainly playing the role of both a data concentrator and a network gateway."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:subClassOf owl:Thing, <https://saref.etsi.org/saref4ehaw/HealthDevice>.
+<https://saref.etsi.org/saref4ehaw/BodySurfaceLocation> a owl:Class, rdfs:Class;
+    rdfs:label "Body surface location"@en;
+    rdfs:comment "Defines a health device location in terms of a body surface position (i.e. on body health device)."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:subClassOf owl:Thing, <https://saref.etsi.org/saref4ehaw/Location>.
+<https://saref.etsi.org/saref4ehaw/Caregiver> a owl:Class, rdfs:Class;
+    rdfs:label "Caregiver"@en;
+    rdfs:comment "For caregivers modelling."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:subClassOf owl:Thing, <https://saref.etsi.org/saref4ehaw/HealthActor>.
+<https://saref.etsi.org/saref4ehaw/hasPatient> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "has patient"@en;
+    rdfs:comment "A caregiver may have one or multiple patients."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <https://saref.etsi.org/saref4ehaw/Caregiver>;
+    rdfs:range <https://saref.etsi.org/saref4ehaw/Patient>.
+<https://saref.etsi.org/saref4ehaw/ChronicDisease> a owl:Class, rdfs:Class;
+    rdfs:label "Chronic disease"@en;
+    rdfs:comment "For chronic disease modelling, e.g. diabetes, asthma..."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:subClassOf owl:Thing.
+<https://saref.etsi.org/saref4ehaw/CommunicationProtocol> a owl:Class, rdfs:Class;
+    rdfs:label "Communication protocol"@en;
+    rdfs:comment "The communication protocol, e.g. BLE, serial, Ethernet..."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:subClassOf owl:Thing.
+<https://saref.etsi.org/saref4ehaw/ComputingPower> a owl:Class, rdfs:Class;
+    rdfs:label "Computing power"@en;
+    rdfs:comment "The computing power capabilities of a Health device."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:subClassOf owl:Thing.
+<https://saref.etsi.org/saref4ehaw/dutyCycle> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "duty cycle"@en;
+    rdfs:comment "The duty cycle for each health device embedded processor, in percent."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <https://saref.etsi.org/saref4ehaw/ComputingPower>;
+    rdfs:range <http://www.w3.org/2001/XMLSchema#int>.
+<https://saref.etsi.org/saref4ehaw/frequency> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "frequency"@en;
+    rdfs:comment "The frequency is the number of instructions an embedded processor - within a health device - can perform per second (MIPS)."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <https://saref.etsi.org/saref4ehaw/ComputingPower>;
+    rdfs:range <http://www.w3.org/2001/XMLSchema#float>.
+<https://saref.etsi.org/saref4ehaw/maximumFlash> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "maximum flash"@en;
+    rdfs:comment "Indicates the maximum flash memory space (in byte) of a health device."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <https://saref.etsi.org/saref4ehaw/ComputingPower>;
+    rdfs:range <http://www.w3.org/2001/XMLSchema#long>.
+<https://saref.etsi.org/saref4ehaw/maximumRam> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "maximum ram"@en;
+    rdfs:comment "Indicates the maximum volatile memory space (in byte) of a health device."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <https://saref.etsi.org/saref4ehaw/ComputingPower>;
+    rdfs:range <http://www.w3.org/2001/XMLSchema#long>.
+<https://saref.etsi.org/saref4ehaw/Contact> a owl:Class, rdfs:Class;
+    rdfs:label "Contact"@en;
+    rdfs:comment "A BAN has one or multiple contacts, i.e. some health actors, e.g. the patient or user that is monitored through this BAN, the caregiver that is using this BAN for monitoring purposes..."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:subClassOf owl:Thing.
+<https://saref.etsi.org/saref4ehaw/DailyActivity> a owl:Class, rdfs:Class;
+    rdfs:label "Daily activity"@en;
+    rdfs:comment "The patient/user activities that occur during daytime."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:subClassOf owl:Thing, <https://saref.etsi.org/saref4ehaw/Activity>.
+<https://saref.etsi.org/saref4ehaw/Data> a owl:Class, rdfs:Class;
+    rdfs:label "Data"@en;
+    rdfs:comment "A function has one or many data, for example a tracking function shall include latitude, longitude and speed data."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:subClassOf owl:Thing.
+<https://saref.etsi.org/saref4ehaw/dataSize> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "data size"@en;
+    rdfs:comment "The data size represents the size of the data in bytes"@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <https://saref.etsi.org/saref4ehaw/Data>;
+    rdfs:range <http://www.w3.org/2001/XMLSchema#positiveInteger>.
+<https://saref.etsi.org/saref4ehaw/format> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "format"@en;
+    rdfs:comment "The format is a URI for a standard format like e.g. integer."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <https://saref.etsi.org/saref4ehaw/Data>;
+    rdfs:range <https://ofn.gov.cz/zdroj/základní-datové-typy/2020-07-01/url>.
+<https://saref.etsi.org/saref4ehaw/hasDataConstraint> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "has data constraint"@en;
+    rdfs:comment "Data has data constraints (validity, legal...)."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <https://saref.etsi.org/saref4ehaw/Data>;
+    rdfs:range <https://saref.etsi.org/saref4ehaw/DataConstraint>.
+<https://saref.etsi.org/saref4ehaw/hasMeasurement> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "has measurement"@en;
+    rdfs:comment "Defines the relationship between data that has measurement."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <https://saref.etsi.org/saref4ehaw/Data>;
+    rdfs:range <https://saref.etsi.org/core/Measurement>.
+<https://saref.etsi.org/saref4ehaw/hasTimeSeriesMesurement> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "has time series measurement"@en;
+    rdfs:comment "Data has time series measurements, a sequence taken at successive equally spaced points in time."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <https://saref.etsi.org/saref4ehaw/Data>;
+    rdfs:range <https://saref.etsi.org/saref4ehaw/TimeSeriesMeasurement>.
+<https://saref.etsi.org/saref4ehaw/isDerivedData> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "is derived data"@en;
+    rdfs:comment "Is derived data is a Boolean property to indicate if the data is a row data or a calculated/derived data from other one."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <https://saref.etsi.org/saref4ehaw/Data>;
+    rdfs:range <https://ofn.gov.cz/zdroj/základní-datové-typy/2020-07-01/boolean>.
+<https://saref.etsi.org/saref4ehaw/DataConstraint> a owl:Class, rdfs:Class;
+    rdfs:label "Data constraint"@en;
+    rdfs:comment "The Data constraints, e.g. validity, legal..."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:subClassOf owl:Thing.
+<https://saref.etsi.org/saref4ehaw/DeviceCharacteristic> a owl:Class, rdfs:Class;
+    rdfs:label "Device characteristic"@en;
+    rdfs:comment "A health device has device characteristic describing the physical characteristics of the health device."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:subClassOf owl:Thing.
+<https://saref.etsi.org/saref4ehaw/deviceCharacteristicName> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "device characteristic name"@en;
+    rdfs:comment "The commercial name of a device."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <https://saref.etsi.org/saref4ehaw/DeviceCharacteristic>;
+    rdfs:range <https://ofn.gov.cz/zdroj/základní-datové-typy/2020-07-01/řetězec>.
+<https://saref.etsi.org/saref4ehaw/dimension> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "dimension"@en;
+    rdfs:comment "The dimension of the device i.e. height*weight*length string."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <https://saref.etsi.org/saref4ehaw/DeviceCharacteristic>;
+    rdfs:range <https://ofn.gov.cz/zdroj/základní-datové-typy/2020-07-01/řetězec>.
+<https://saref.etsi.org/saref4ehaw/hasComputingPower> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "has computing power"@en;
+    rdfs:comment "A health device characteristic describing the processing power or capabilities of the device (e.g. processor ID and manufacturer, duty cycle, available flash/RM memory, maximum flash/RAM memory...)."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <https://saref.etsi.org/saref4ehaw/DeviceCharacteristic>;
+    rdfs:range <https://saref.etsi.org/saref4ehaw/ComputingPower>.
+<https://saref.etsi.org/saref4ehaw/hasMode> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "has mode"@en;
+    rdfs:comment "Each device has modes of operations that model its dynamic characteristic varying during its lifetime, e.g. active, hold, beacon..."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <https://saref.etsi.org/saref4ehaw/DeviceCharacteristic>;
+    rdfs:range <https://saref.etsi.org/saref4ehaw/Mode>.
+<https://saref.etsi.org/saref4ehaw/hasPowerSource> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "has power source"@en;
+    rdfs:comment "A health device characteristic is its  power sources, mainly describing energy source and battery related capabilities of the health device (number of power source, source type, rechargeable or not, available power level...)."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <https://saref.etsi.org/saref4ehaw/DeviceCharacteristic>;
+    rdfs:range <https://saref.etsi.org/saref4ehaw/PowerSource>.
+<https://saref.etsi.org/saref4ehaw/velocity> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "velocity"@en;
+    rdfs:comment "The velocity of a moving device (in m/s)."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <https://saref.etsi.org/saref4ehaw/DeviceCharacteristic>;
+    rdfs:range <http://www.w3.org/2001/XMLSchema#float>.
+<https://saref.etsi.org/saref4ehaw/EventDrivenBanCommunicationType> a owl:Class, rdfs:Class;
+    rdfs:label "Event driven BAN communication type"@en;
+    rdfs:comment "BAN communication function way of working of the type event driven."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:subClassOf owl:Thing, <https://saref.etsi.org/saref4ehaw/BanCommunicationType>.
+<https://saref.etsi.org/saref4ehaw/FunctionalDevice> a owl:Class, rdfs:Class;
+    rdfs:label "Functional device"@en;
+    rdfs:comment "Functional Devices are non-purely eHealth/ageing-well devices that can be used for modelling/detecting activities or behaviours of patients/users, like for example beacons that can detect indoor positioning of a patient in a house."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:subClassOf owl:Thing, <https://saref.etsi.org/core/Device>.
+<https://saref.etsi.org/saref4ehaw/Habit> a owl:Class, rdfs:Class;
+    rdfs:label "Habit"@en;
+    rdfs:comment "Defined for users (that can in particular be patients) habits modelling, e.g. smoking, alcohol drinking, overeating, undereating..."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:subClassOf owl:Thing.
+<https://saref.etsi.org/saref4ehaw/HealthActor> a owl:Class, rdfs:Class;
+    rdfs:label "Health actor"@en;
+    rdfs:comment "The eHealth actors like e.g. caregivers, patients, users, helpers..."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:subClassOf owl:Thing, <http://xmlns.com/foaf/0.1/Agent>.
+<https://saref.etsi.org/saref4ehaw/dob> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "date of birth"@en;
+    rdfs:comment "The date of birth of a health actor."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <https://saref.etsi.org/saref4ehaw/HealthActor>;
+    rdfs:range <http://www.w3.org/2001/XMLSchema#dateTime>.
+<https://saref.etsi.org/saref4ehaw/firstName> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "first name"@en;
+    rdfs:comment "The first name of a health actor."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <https://saref.etsi.org/saref4ehaw/HealthActor>;
+    rdfs:range <https://ofn.gov.cz/zdroj/základní-datové-typy/2020-07-01/řetězec>.
+<https://saref.etsi.org/saref4ehaw/hasActivity> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "has activity"@en;
+    rdfs:comment "A health actor may have one or multiple activities."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <https://saref.etsi.org/saref4ehaw/HealthActor>;
+    rdfs:range <https://saref.etsi.org/saref4ehaw/Activity>.
+<https://saref.etsi.org/saref4ehaw/hasAgeCategory> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "has age category"@en;
+    rdfs:comment "The age group of a health actor, e.g. old or young."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <https://saref.etsi.org/saref4ehaw/HealthActor>;
+    rdfs:range <https://saref.etsi.org/saref4ehaw/AgeCategory>.
+<https://saref.etsi.org/saref4ehaw/hasGender> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "has gender"@en;
+    rdfs:comment "The gender of a health actor."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <https://saref.etsi.org/saref4ehaw/HealthActor>;
+    rdfs:range <n3-0>;
+    a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "has gender"@en;
+    rdfs:comment "The gender of a health actor."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <https://saref.etsi.org/saref4ehaw/HealthActor>;
+    rdfs:range <n3-0>.
+<https://saref.etsi.org/saref4ehaw/hasMbox> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "has mbox"@en;
+    rdfs:comment "An email address (or mail box) of an health actor: a URI with the 'mailto' scheme as defined by RFC 6068."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <https://saref.etsi.org/saref4ehaw/HealthActor>;
+    rdfs:range <https://ofn.gov.cz/zdroj/základní-datové-typy/2020-07-01/url>.
+<https://saref.etsi.org/saref4ehaw/lastName> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "last name"@en;
+    rdfs:comment "The familly name of a health actor."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <https://saref.etsi.org/saref4ehaw/HealthActor>;
+    rdfs:range <https://ofn.gov.cz/zdroj/základní-datové-typy/2020-07-01/řetězec>.
+<https://saref.etsi.org/saref4ehaw/phone> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "phone"@en;
+    rdfs:comment "The phone number of a health actor, in international format."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <https://saref.etsi.org/saref4ehaw/HealthActor>;
+    rdfs:range <https://ofn.gov.cz/zdroj/základní-datové-typy/2020-07-01/řetězec>.
+<https://saref.etsi.org/saref4ehaw/usesBan> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "uses ban"@en;
+    rdfs:comment "A health actor (e.g. a caregiver, a patient or a helper) uses a BAN for collecting, aggregating and relaying vital parameters."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <https://saref.etsi.org/saref4ehaw/HealthActor>;
+    rdfs:range <https://saref.etsi.org/saref4ehaw/Ban>.
+<https://saref.etsi.org/saref4ehaw/HealthActuator> a owl:Class, rdfs:Class;
+    rdfs:label "Health actuator"@en;
+    rdfs:comment "Health-related Actuator, equivalent to SAREF Actuator."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:subClassOf owl:Thing, <https://saref.etsi.org/saref4ehaw/HealthDevice>.
+<https://saref.etsi.org/saref4ehaw/HealthDevice> a owl:Class, rdfs:Class;
+    rdfs:label "Health Device"@en;
+    rdfs:comment "Health devices, e.g. BAN hub, health sensor/actuator/Wereable."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:subClassOf owl:Thing, <https://saref.etsi.org/core/Device>.
+<https://saref.etsi.org/saref4ehaw/availableFlash> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "available flash"@en;
+    rdfs:comment "The available flash memory (in byte) of a health device. It is a dynamic attribute."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <https://saref.etsi.org/saref4ehaw/HealthDevice>;
+    rdfs:range <http://www.w3.org/2001/XMLSchema#long>.
+<https://saref.etsi.org/saref4ehaw/availableRam> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "available ram"@en;
+    rdfs:comment "Indicates the available volatile memory space (in byte) of a health device. It is a dynamic attribute."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <https://saref.etsi.org/saref4ehaw/HealthDevice>;
+    rdfs:range <http://www.w3.org/2001/XMLSchema#long>.
+<https://saref.etsi.org/saref4ehaw/hasDeviceCharacteristic> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "has device characteristic"@en;
+    rdfs:comment "A health device has device characteristic describing the physical characteristics of the health device, e.g. its dimensions."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <https://saref.etsi.org/saref4ehaw/HealthDevice>;
+    rdfs:range <https://saref.etsi.org/saref4ehaw/DeviceCharacteristic>.
+<https://saref.etsi.org/saref4ehaw/hasInterface> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "has interface"@en;
+    rdfs:comment "A health device has one or multiple interfaces (Bluetooth, UWB, IEEE 802.15.6, serial interface...)."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <https://saref.etsi.org/saref4ehaw/HealthDevice>;
+    rdfs:range <https://saref.etsi.org/saref4ehaw/Interface>.
+<https://saref.etsi.org/saref4ehaw/hasLocation> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "has location"@en;
+    rdfs:comment "The location of an eHealth device, i.e. its position against the body (on body surface or in the body - implant -) and its physical location (i.e. its postal address and/or its current geolocation geolocation when available)."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <https://saref.etsi.org/saref4ehaw/HealthDevice>;
+    rdfs:range <https://saref.etsi.org/saref4ehaw/Location>.
+<https://saref.etsi.org/saref4ehaw/hasOperatingConstraint> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "has operating constraint"@en;
+    rdfs:comment "The operating constraints of a health device, e.g. recommended humidity and temperature range..."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <https://saref.etsi.org/saref4ehaw/HealthDevice>;
+    rdfs:range <https://saref.etsi.org/saref4ehaw/OperatingConstraint>.
+<https://saref.etsi.org/saref4ehaw/inCurrentMode> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "in current mode"@en;
+    rdfs:comment "Each eHealth device has modes of operations that model its dynamic characteristic varying during its lifetime, e.g. active, hold, beacon..."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <https://saref.etsi.org/saref4ehaw/HealthDevice>;
+    rdfs:range <https://saref.etsi.org/saref4ehaw/Mode>.
+<https://saref.etsi.org/saref4ehaw/isAttachedTo> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "is attached to"@en;
+    rdfs:comment "A health Device is attached to a health actor such as a patient, a user and or a caregiver."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <https://saref.etsi.org/saref4ehaw/HealthDevice>;
+    rdfs:range <https://saref.etsi.org/saref4ehaw/HealthActor>.
+<https://saref.etsi.org/saref4ehaw/remainingBatteryLevel> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "remaining battery level"@en;
+    rdfs:comment "The level of remaining battery (if any : in percent) for a health device. It is a dynamic attribute."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <https://saref.etsi.org/saref4ehaw/HealthDevice>;
+    rdfs:range <http://www.w3.org/2001/XMLSchema#long>.
+<https://saref.etsi.org/saref4ehaw/serialNb> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "serial number"@en;
+    rdfs:comment "The serial number of a health device."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <https://saref.etsi.org/saref4ehaw/HealthDevice>;
+    rdfs:range <https://ofn.gov.cz/zdroj/základní-datové-typy/2020-07-01/řetězec>.
+<https://saref.etsi.org/saref4ehaw/HealthSensor> a owl:Class, rdfs:Class;
+    rdfs:label "Health sensor"@en;
+    rdfs:comment "Health-related Sensor, equivalent to SAREF Sensor."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:subClassOf owl:Thing, <https://saref.etsi.org/saref4ehaw/HealthDevice>.
+<https://saref.etsi.org/saref4ehaw/HealthWearable> a owl:Class, rdfs:Class;
+    rdfs:label "Health wereable"@en;
+    rdfs:comment "Health-related Wearable, equivalent to SAREF4WEAR Wearable."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:subClassOf owl:Thing, <https://saref.etsi.org/saref4ehaw/HealthDevice>.
+<https://saref.etsi.org/saref4ehaw/Helper> a owl:Class, rdfs:Class;
+    rdfs:label "Helper"@en;
+    rdfs:comment "Helper of patients/users, e.g. a patient's relative."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:subClassOf owl:Thing, <https://saref.etsi.org/saref4ehaw/HealthActor>.
+<https://saref.etsi.org/saref4ehaw/followsUser> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "follows user"@en;
+    rdfs:comment "A helper may follow one or multiple users that can in particular be patients."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <https://saref.etsi.org/saref4ehaw/Helper>;
+    rdfs:range <https://saref.etsi.org/saref4ehaw/User>.
+<https://saref.etsi.org/saref4ehaw/Impairment> a owl:Class, rdfs:Class;
+    rdfs:label "Impairment"@en;
+    rdfs:comment "Defined for users (that can in particular be patients) impairments modelling, e.g. aural impairment, skeletal impairment, ocular impairment, mobility impairment, intellectual impairment. Those non exhaustive impairments are compatible with the World Health Organization classification."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:subClassOf owl:Thing.
+<https://saref.etsi.org/saref4ehaw/ImplantLocation> a owl:Class, rdfs:Class;
+    rdfs:label "Implant location"@en;
+    rdfs:comment "Implant Device (i.e. in body health device) position."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:subClassOf owl:Thing, <https://saref.etsi.org/saref4ehaw/Location>.
+<https://saref.etsi.org/saref4ehaw/Interface> a owl:Class, rdfs:Class;
+    rdfs:label "Interface"@en;
+    rdfs:comment "Used for modelling the interfaces of a health device (e.g. Bluetooth, UWB, IEEE 802.15.6, serial interface...)."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:subClassOf owl:Thing.
+<https://saref.etsi.org/saref4ehaw/interfaceAddress> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "interface address"@en;
+    rdfs:comment "The interface address. The interface may have many addresses like MAC address, IP address or others."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <https://saref.etsi.org/saref4ehaw/Interface>;
+    rdfs:range <https://ofn.gov.cz/zdroj/základní-datové-typy/2020-07-01/řetězec>.
+<https://saref.etsi.org/saref4ehaw/interfaceDescription> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "interface description"@en;
+    rdfs:comment "The interface type description."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <https://saref.etsi.org/saref4ehaw/Interface>;
+    rdfs:range <https://ofn.gov.cz/zdroj/základní-datové-typy/2020-07-01/řetězec>.
+<https://saref.etsi.org/saref4ehaw/interfaceProtocol> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "interface protocol"@en;
+    rdfs:comment "The interface communication protocol can be e.g. BLE, serial, Ethernet..."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <https://saref.etsi.org/saref4ehaw/Interface>;
+    rdfs:range <https://saref.etsi.org/saref4ehaw/CommunicationProtocol>.
+<https://saref.etsi.org/saref4ehaw/isGateway> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "is gateway"@en;
+    rdfs:comment "This boolean variable indicates if the interface is a gateway or not."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <https://saref.etsi.org/saref4ehaw/Interface>;
+    rdfs:range <https://ofn.gov.cz/zdroj/základní-datové-typy/2020-07-01/boolean>.
+<https://saref.etsi.org/saref4ehaw/transmissionRate> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "transmission rate"@en;
+    rdfs:comment "The transmission rate of the interface, i.e. the number of bits transmitted per second (usually expressed in kbps or Mbps)."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <https://saref.etsi.org/saref4ehaw/Interface>;
+    rdfs:range <http://www.w3.org/2001/XMLSchema#float>.
+<https://saref.etsi.org/saref4ehaw/LegalConstraint> a owl:Class, rdfs:Class;
+    rdfs:label "Legal constraint"@en;
+    rdfs:comment "An empty container for describing the legal constraints a data can be submitted to, like e.g. anonymization."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:subClassOf owl:Thing, <https://saref.etsi.org/saref4ehaw/DataConstraint>.
+<https://saref.etsi.org/saref4ehaw/Location> a owl:Class, rdfs:Class;
+    rdfs:label "Location"@en;
+    rdfs:comment "The location, i.e. a position against the body (on - body surface – or in the body – implant –) and a physical location (i.e. a postal address and/or a current geolocation when available)."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:subClassOf owl:Thing.
+<https://saref.etsi.org/saref4ehaw/MeasurementCollectionSession> a owl:Class, rdfs:Class;
+    rdfs:label "Measurement collection session"@en;
+    rdfs:comment "Task in which a health actor (mainly a patient or a user) is subject of measurement collection (recording) by both some measurement-related health Device (e.g. Sensor, Wearable, ECG Device...) and a health actor (mainly a caregiver)."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:subClassOf owl:Thing, <https://saref.etsi.org/core/Task>.
+<https://saref.etsi.org/saref4ehaw/hasParticipant> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "has participant"@en;
+    rdfs:comment "A measurement session has health actors as participants (caregiver controling the session, patient monitored during the session)."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <https://saref.etsi.org/saref4ehaw/MeasurementCollectionSession>;
+    rdfs:range <https://saref.etsi.org/saref4ehaw/HealthActor>.
+<https://saref.etsi.org/saref4ehaw/MeasurementFunction> a owl:Class, rdfs:Class;
+    rdfs:label "Measurement function"@en;
+    rdfs:comment "The functionality necessary to accomplish the measurement task for which a measurement-related health Device (e.g. Sensor, Wearable, ECG Device...) is designed for, e.g. a heart rate measurement function."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:subClassOf owl:Thing, <https://saref.etsi.org/core/Function>.
+<https://saref.etsi.org/saref4ehaw/faultTolerence> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "fault tolerence"@en;
+    rdfs:comment "Defines the error rate tolerated for a measurement function."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <https://saref.etsi.org/saref4ehaw/MeasurementFunction>;
+    rdfs:range <http://www.w3.org/2001/XMLSchema#double>.
+<https://saref.etsi.org/saref4ehaw/latency> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "latency"@en;
+    rdfs:comment "The latency is the time interval between the stimulation and response of a measurement function (in ms)."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <https://saref.etsi.org/saref4ehaw/MeasurementFunction>;
+    rdfs:range <http://www.w3.org/2001/XMLSchema#float>.
+<https://saref.etsi.org/saref4ehaw/precision> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "precision"@en;
+    rdfs:comment "Precision refers to the degree of reproducibility of a measured quantity (when the same quantity is measured several times how close are the measurements from each other)."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <https://saref.etsi.org/saref4ehaw/MeasurementFunction>;
+    rdfs:range <http://www.w3.org/ns/ssn/systems/Precision>.
+<https://saref.etsi.org/saref4ehaw/sampleTime> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "sample time"@en;
+    rdfs:comment "The sample time of a measurement function (a discrete integer)."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <https://saref.etsi.org/saref4ehaw/MeasurementFunction>;
+    rdfs:range <http://www.w3.org/2001/XMLSchema#int>.
+<https://saref.etsi.org/saref4ehaw/uom> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "unit of measurement"@en;
+    rdfs:comment "Defines the unit of measure of a measurement function."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <https://saref.etsi.org/saref4ehaw/MeasurementFunction>;
+    rdfs:range <https://saref.etsi.org/core/UnitOfMeasure>.
+<https://saref.etsi.org/saref4envi/hasFrequencyMeasurement> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "has frequency measurement"@en;
+    rdfs:comment "A measurement fucntion, in case of complex measurement like time series, has frequency measurement, i.e. the frequency in which it makes measurements."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <https://saref.etsi.org/saref4ehaw/MeasurementFunction>;
+    rdfs:range <https://saref.etsi.org/saref4envi/FrequencyMeasurement>.
+<https://saref.etsi.org/saref4ehaw/Mode> a owl:Class, rdfs:Class;
+    rdfs:label "Mode"@en;
+    rdfs:comment "The dynamic characteristics of a eHealth Device that vary during its lifetime or its BAN lifetime."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:subClassOf owl:Thing.
+<https://saref.etsi.org/saref4ehaw/modeName> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "mode name"@en;
+    rdfs:comment "The mode name of a device, e.g. sleeping."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <https://saref.etsi.org/saref4ehaw/Mode>;
+    rdfs:range <https://ofn.gov.cz/zdroj/základní-datové-typy/2020-07-01/řetězec>.
+<https://saref.etsi.org/saref4ehaw/NocturnalActivity> a owl:Class, rdfs:Class;
+    rdfs:label "Nocturnal activity"@en;
+    rdfs:comment "The patient/user activities that occur during the night."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:subClassOf owl:Thing, <https://saref.etsi.org/saref4ehaw/Activity>.
+<https://saref.etsi.org/saref4ehaw/OnRequestBanCommunicationType> a owl:Class, rdfs:Class;
+    rdfs:label "On request BAN communication type"@en;
+    rdfs:comment "BAN communication function way of working of the type on request."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:subClassOf owl:Thing, <https://saref.etsi.org/saref4ehaw/BanCommunicationType>.
+<https://saref.etsi.org/saref4ehaw/OperatingConstraint> a owl:Class, rdfs:Class;
+    rdfs:label "Operating constraint"@en;
+    rdfs:comment "An empty container for describing the operating constraints of a device, e.g. recommended humidity and temperature range..."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:subClassOf owl:Thing.
+<https://saref.etsi.org/saref4ehaw/Patient> a owl:Class, rdfs:Class;
+    rdfs:label "Patient"@en;
+    rdfs:comment "A user of the type patient, i.e. a cared-for person by one or multiple caregivers."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:subClassOf <https://example.com/hospitals#Patient>, owl:Thing, <https://saref.etsi.org/saref4ehaw/User>.
+<https://saref.etsi.org/saref4ehaw/hasChronicDisease> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "has chronic disease"@en;
+    rdfs:comment "A patient can suffer from one or more chronic disease like Diabetes, azma, etc."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <https://saref.etsi.org/saref4ehaw/Patient>;
+    rdfs:range <https://saref.etsi.org/saref4ehaw/ChronicDisease>.
+<https://saref.etsi.org/saref4ehaw/hasPhysicalLocation> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "has physical location"@en;
+    rdfs:comment "Defines the physical location of the patient, i.e. its postal address and/or its geolocation (when available)."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <https://saref.etsi.org/saref4ehaw/Patient>;
+    rdfs:range <https://saref.etsi.org/saref4ehaw/PhysicalLocation>.
+<https://saref.etsi.org/saref4ehaw/PeriodicBanCommunicationType> a owl:Class, rdfs:Class;
+    rdfs:label "Periodic BAN communication type"@en;
+    rdfs:comment "BAN communication function way of working of the type periodic."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:subClassOf owl:Thing, <https://saref.etsi.org/saref4ehaw/BanCommunicationType>.
+<https://saref.etsi.org/saref4ehaw/sendingFrequency> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "sending frequency"@en;
+    rdfs:comment "Defines the sending frequency (in ms), at an health device level, in case of pariodic BAN communication type."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <https://saref.etsi.org/saref4ehaw/PeriodicBanCommunicationType>;
+    rdfs:range <http://www.w3.org/2001/XMLSchema#float>.
+<https://saref.etsi.org/saref4ehaw/PhysicalLocation> a owl:Class, rdfs:Class;
+    rdfs:label "Physical location"@en;
+    rdfs:comment "The physical location, i.e. a postal address and a geolocation when available."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:subClassOf owl:Thing, <https://saref.etsi.org/saref4ehaw/Location>.
+<https://saref.etsi.org/saref4ehaw/geolocation> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "geolocation"@en;
+    rdfs:comment "The geolocation, when available, shall be given relatively to the current location - geolocation as standardized ISO 6709, e.g. +40.75-074.00/ -."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <https://saref.etsi.org/saref4ehaw/PhysicalLocation>;
+    rdfs:range <https://ofn.gov.cz/zdroj/základní-datové-typy/2020-07-01/řetězec>.
+<https://saref.etsi.org/saref4ehaw/postalAddress> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "postal address"@en;
+    rdfs:comment "Defines the postal address."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <https://saref.etsi.org/saref4ehaw/PhysicalLocation>;
+    rdfs:range <https://ofn.gov.cz/zdroj/základní-datové-typy/2020-07-01/řetězec>.
+<https://saref.etsi.org/saref4ehaw/Posture> a owl:Class, rdfs:Class;
+    rdfs:label "Posture"@en;
+    rdfs:comment "The posture of a health actor (mainly a patient or a user), e.g. exercising, lying, running, sitting, walking..."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:subClassOf owl:Thing, <https://saref.etsi.org/core/Property>.
+<https://saref.etsi.org/saref4ehaw/PowerSource> a owl:Class, rdfs:Class;
+    rdfs:label "Power source"@en;
+    rdfs:comment "The power sources of a health device, mainly describing energy source and battery related capabilities of the health device (number of power source, source type, rechargeable or not...)."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:subClassOf owl:Thing.
+<https://saref.etsi.org/saref4ehaw/powerSourceType> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "power source type"@en;
+    rdfs:comment "The type of power source of a health device. It can be solar, battery, electricity..."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <https://saref.etsi.org/saref4ehaw/PowerSource>;
+    rdfs:range <https://ofn.gov.cz/zdroj/základní-datové-typy/2020-07-01/řetězec>.
+<https://saref.etsi.org/saref4ehaw/rechargeable> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "rechargeable"@en;
+    rdfs:comment "This boolean variable indicates if the power source is rechargeable or not, e.g. a rechargeable battery."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <https://saref.etsi.org/saref4ehaw/PowerSource>;
+    rdfs:range <https://ofn.gov.cz/zdroj/základní-datové-typy/2020-07-01/boolean>.
+<https://saref.etsi.org/saref4ehaw/ReminderCommand> a owl:Class, rdfs:Class;
+    rdfs:label "Reminder command"@en;
+    rdfs:comment "Command used for sending reminder notifications to health actors, e.g. patients, users or Caregivers."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:subClassOf owl:Thing, <https://saref.etsi.org/core/NotifyCommand>.
+<https://saref.etsi.org/saref4ehaw/ResponsibleParty> a owl:Class, rdfs:Class;
+    rdfs:label "Responsible party"@en;
+    rdfs:comment "The legal entity responsible for a BAN, i.e. to contact in case of problem."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:subClassOf owl:Thing, <https://saref.etsi.org/saref4ehaw/HealthActor>.
+<https://saref.etsi.org/saref4ehaw/ServiceGrounding> a owl:Class, rdfs:Class;
+    rdfs:label "Service grounding"@en;
+    rdfs:comment "How to access the service."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:subClassOf owl:Thing.
+<https://saref.etsi.org/saref4ehaw/groundingProtocol> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "grounding protocol"@en;
+    rdfs:comment "The grounding protocol is the protocol used to transmit the message by the service, e.g. BLE."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <https://saref.etsi.org/saref4ehaw/ServiceGrounding>;
+    rdfs:range <https://saref.etsi.org/saref4ehaw/CommunicationProtocol>.
+<https://saref.etsi.org/saref4ehaw/portNumber> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "port number"@en;
+    rdfs:comment "The port number used to offer the service."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <https://saref.etsi.org/saref4ehaw/ServiceGrounding>;
+    rdfs:range <http://www.w3.org/2001/XMLSchema#positiveInteger>.
+<https://saref.etsi.org/saref4ehaw/ServiceProcess> a owl:Class, rdfs:Class;
+    rdfs:label "Service process"@en;
+    rdfs:comment "How the service works."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:subClassOf owl:Thing.
+<https://saref.etsi.org/saref4ehaw/hasCalculationMethod> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "has calculation method"@en;
+    rdfs:comment "The service process has a calculation method to get the output or result, e.g. the calculation formula to determine the posture of a patient."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <https://saref.etsi.org/saref4ehaw/ServiceProcess>;
+    rdfs:range <https://ofn.gov.cz/zdroj/základní-datové-typy/2020-07-01/řetězec>.
+<https://saref.etsi.org/saref4ehaw/hasEffect> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "has effect"@en;
+    rdfs:comment "The effect of a service can be an alert, nothing, an activation of another process..."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <https://saref.etsi.org/saref4ehaw/ServiceProcess>;
+    rdfs:range <https://ofn.gov.cz/zdroj/základní-datové-typy/2020-07-01/řetězec>.
+<https://saref.etsi.org/saref4ehaw/hasInput> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "has input"@en;
+    rdfs:comment "The service process has data input like e.g. the patient ID, the timestamp, the read value from a sensor..."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <https://saref.etsi.org/saref4ehaw/ServiceProcess>;
+    rdfs:range <https://ofn.gov.cz/zdroj/základní-datové-typy/2020-07-01/řetězec>.
+<https://saref.etsi.org/saref4ehaw/hasOutput> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "has output"@en;
+    rdfs:comment "The output is e.g. the calculated value returned by the process, e.g the posture of a patient."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <https://saref.etsi.org/saref4ehaw/ServiceProcess>;
+    rdfs:range <https://ofn.gov.cz/zdroj/základní-datové-typy/2020-07-01/řetězec>.
+<https://saref.etsi.org/saref4ehaw/hasPrecondition> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "has precondition"@en;
+    rdfs:comment "The conditions that are imposed over the inputs of the process and the process must hold to be successufully invoked."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <https://saref.etsi.org/saref4ehaw/ServiceProcess>;
+    rdfs:range <https://ofn.gov.cz/zdroj/základní-datové-typy/2020-07-01/řetězec>.
+<https://saref.etsi.org/saref4ehaw/hasResult> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "has result"@en;
+    rdfs:comment "The process can have many results for the same output. Those results may include a message that should be displayed, an alert..."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <https://saref.etsi.org/saref4ehaw/ServiceProcess>;
+    rdfs:range <https://ofn.gov.cz/zdroj/základní-datové-typy/2020-07-01/řetězec>.
+<https://saref.etsi.org/saref4ehaw/ServiceProfile> a owl:Class, rdfs:Class;
+    rdfs:label "Service profile"@en;
+    rdfs:comment "What the service does."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:subClassOf owl:Thing.
+<https://saref.etsi.org/saref4ehaw/serviceDescription> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "service description"@en;
+    rdfs:comment "The service description should describe the offered service like e.g. heart rate measurement."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <https://saref.etsi.org/saref4ehaw/ServiceProfile>;
+    rdfs:range <https://ofn.gov.cz/zdroj/základní-datové-typy/2020-07-01/řetězec>.
+<https://saref.etsi.org/saref4ehaw/serviceName> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "service name"@en;
+    rdfs:comment "The service name identify the offered service, e.g heart rate."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <https://saref.etsi.org/saref4ehaw/ServiceProfile>;
+    rdfs:range <https://ofn.gov.cz/zdroj/základní-datové-typy/2020-07-01/řetězec>.
+<https://saref.etsi.org/saref4ehaw/TimeSeriesMeasurement> a owl:Class, rdfs:Class;
+    rdfs:label "Time series measurement"@en;
+    rdfs:comment "A sequence of data in a successive equally spaced points in time. The O&M ontology (ISO 19156) defines Time Series Observation  as an “observation whose result is a time-series”, while both Hl7 aECG and DICOM standards define the Series element as a sequence of data sharing a common frame of reference. In SAREF4health this concept is termed as Time Series Measurements since this sequence of data refers to time series measured by a health device."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:subClassOf owl:Thing, <https://saref.etsi.org/core/Measurement>, <n3-8>, <n3-9>.
+<https://saref.etsi.org/saref4ehaw/hasValues> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "has values"@en;
+    rdfs:comment "A relationship defining the set of values (an ordered array of numbers) of a certain property, e.g., heart rate. Attention: to assure ordering in the serialization format, it is necessary to use either rdf:Seq (RDF/XML) or @list (JSON-LD)."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <https://saref.etsi.org/saref4ehaw/TimeSeriesMeasurement>;
+    rdfs:range <https://ofn.gov.cz/zdroj/základní-datové-typy/2020-07-01/desetinné-číslo>.
+<https://saref.etsi.org/saref4ehaw/User> a owl:Class, rdfs:Class;
+    rdfs:label "User"@en;
+    rdfs:comment "A health actor (patient included) that can be equiped with BANs or health devices for monitoring, control, care (specific case of patients) or support purposes."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:subClassOf owl:Thing, <https://saref.etsi.org/saref4ehaw/HealthActor>.
+<https://saref.etsi.org/saref4ehaw/hasHabit> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "has habit"@en;
+    rdfs:comment "The habits of a user and a patient (as sub-class of user it also inherits habit), e.g. smoking or overeating."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <https://saref.etsi.org/saref4ehaw/User>;
+    rdfs:range <https://saref.etsi.org/saref4ehaw/Habit>.
+<https://saref.etsi.org/saref4ehaw/hasImpairment> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "has impairment"@en;
+    rdfs:comment "The impairment type of a user and a patient (as sub-class of user it also inherits impairment), e.g. aural, skeletal, ocular, mobility, intellectual..."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <https://saref.etsi.org/saref4ehaw/User>;
+    rdfs:range <https://saref.etsi.org/saref4ehaw/Impairment>.
+<https://saref.etsi.org/saref4ehaw/hasPosture> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "has posture"@en;
+    rdfs:comment "The posture of a user and a patient (as sub-class of user it also inherits habit), e.g. exercising, lying, running, sitting, walking..."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <https://saref.etsi.org/saref4ehaw/User>;
+    rdfs:range <https://saref.etsi.org/saref4ehaw/Posture>.
+<https://saref.etsi.org/saref4ehaw/ValidityConstraint> a owl:Class, rdfs:Class;
+    rdfs:label "Validity constraint"@en;
+    rdfs:comment "Data may have validity constraint such as allowable value range."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:subClassOf owl:Thing, <https://saref.etsi.org/saref4ehaw/DataConstraint>.
+<https://saref.etsi.org/saref4ehaw/maximumValue> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "maximum value"@en;
+    rdfs:comment "The maximum allowable value of a measurement."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <https://saref.etsi.org/saref4ehaw/ValidityConstraint>;
+    rdfs:range <https://ofn.gov.cz/zdroj/základní-datové-typy/2020-07-01/desetinné-číslo>.
+<https://saref.etsi.org/saref4ehaw/minimumValue> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "minimum value"@en;
+    rdfs:comment "The minimum allowable value  of a measurement."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:domain <https://saref.etsi.org/saref4ehaw/ValidityConstraint>;
+    rdfs:range <https://ofn.gov.cz/zdroj/základní-datové-typy/2020-07-01/desetinné-číslo>.
+<https://saref.etsi.org/saref4envi/FrequencyMeasurement> a owl:Class, rdfs:Class;
+    rdfs:label "Frequency measurement"@en;
+    rdfs:comment "Represents the measured value made over a frequency property. It is also linked to the frequency unit of measure in which the value is expressed and the timestamp of the measurement."@en;
+    rdfs:isDefinedBy <>;
+    rdfs:subClassOf owl:Thing.
